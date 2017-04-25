@@ -34,4 +34,5 @@ writeup.md | Project writeup
 Traffic_Sign_Classifier.ipynb | Notebook with project implementation
 Traffic_Sign_Classifier.html | Notebook saved as HTML
 new_images/ | Directory of 5 German traffic signs from internet used for testing
+plots/ | Output images used in writeupe
 lenet\* | TensorFlow files for Neural Network
