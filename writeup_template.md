@@ -65,7 +65,7 @@ Grouped bar chart showing the percentage of each class across the three train, v
 
 #### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
-As a first step, I converted the images to grayscale because to reduce noise in the images and reduce the amount of data used by the network.
+As a first step, I converted the images to grayscale because to reduce noise in the images and reduce the amount of data used by the network.  Additionally, this often makes traffic signs more apparent in darker images.  See the example below.
 
 Here is an example of a traffic sign image before and after grayscaling.
 
@@ -97,21 +97,28 @@ My final model consisted of the following layers:
 | RELU					|												|
 | Drop-out					|												|
 | Fully connected		| input = 84, output = 43 |
-|						|												|
-|						|												|
- 
+|			SoftMax			|												|
+
 
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
 To train the model, I mostly used the LeNet pipline from the previous project, but with some minor modifications.  I used the AdamOptimizer to minimize a loss function with batch size of 128 and learning rate of 0.001.  I trained for 20 epochs and a keep probability of 0.5 for drop-out during training
 
-####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+
+My approach consisted of using the LeNet architecture with two major modifications:
+
+1. I increased the filter depth of the first two convulation layers to 48 and 128, respectively.  This had a significant impact on peformance, leading to an 3% increase in accuracy on the validation set.
+
+2. I implemented drop-out after each fully-connected activation layer.  This also had a significant impact (+3%) on validation set accuracy.
+
+We settled on these two modifications after iteratively assessing various network architectures.
 
 My final model results were:
-* training set accuracy of 0.999
-* validation set accuracy of 0.972
-* test set accuracy of 0.959
+* training set accuracy of 0.999 (Section "Train the Model", 16th cell of notebook)
+* validation set accuracy of 0.972 (Section "Train the Model", 16th cell of notebook)
+* test set accuracy of 0.959 (Section "Evaluate the Model", 17th cell of notebook)
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -126,7 +133,7 @@ If a well known architecture was chosen:
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
  
 
-###Test a Model on New Images
+### Test a Model on New Images
 
 #### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
@@ -152,7 +159,7 @@ Here are the results of the prediction:
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
 
-####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
@@ -170,6 +177,6 @@ For the first image, the model is relatively sure that this is a stop sign (prob
 For the second image ... 
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
-####1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
+#### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
 
-
+![alt text][image10]
