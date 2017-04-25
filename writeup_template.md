@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 [image1]: ./plots/class_occurence_bar.png "Occurence of Classes"
 [image2]: ./plots/grayscaled.png "Grayscaling"
 [image3]: ./plots/normalized.ong "Normalization"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
+[image4]: ./plots/class_grid.png "Traffic Sign 1"
 [image5]: ./examples/placeholder.png "Traffic Sign 2"
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
 [image7]: ./examples/placeholder.png "Traffic Sign 4"
@@ -49,7 +49,13 @@ signs data set:
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. It is a grouped bar chart showing the percentage of each class across the three train, validation, and test datasets.  This shows that the distribution of classes are similar across datasets. One notable difference is that the validation set has slightly more representation of labels [0, 6, 15, 19, 20, 21, 22, 30, 33, 34, 36, 40].
+##### Figure 1.
+German Traffic Sign data, example for each class
+
+![alt text][image4]
+
+##### Figure 2.
+Grouped bar chart showing the percentage of each class across the three train, validation, and test datasets.  This shows that the distribution of classes are similar across datasets. One notable difference is that the validation set has slightly more representation of labels [0, 6, 15, 19, 20, 21, 22, 30, 33, 34, 36, 40].
 
 ![alt text][image1]
 
@@ -101,9 +107,9 @@ To train the model, I mostly used the LeNet pipline from the previous project, b
 ####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ? 
-* test set accuracy of ?
+* training set accuracy of 0.999
+* validation set accuracy of 0.972
+* test set accuracy of 0.959
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
@@ -120,7 +126,7 @@ If a well known architecture was chosen:
 
 ###Test a Model on New Images
 
-####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
 Here are five German traffic signs that I found on the web:
 
@@ -129,7 +135,7 @@ Here are five German traffic signs that I found on the web:
 
 The first image might be difficult to classify because ...
 
-####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
 Here are the results of the prediction:
 
