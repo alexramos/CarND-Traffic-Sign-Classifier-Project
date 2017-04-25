@@ -17,12 +17,13 @@ The goals / steps of this project are the following:
 
 [image1]: ./plots/class_occurence_bar.png "Occurence of Classes"
 [image2]: ./plots/grayscaled.png "Grayscaling"
-[image3]: ./plots/normalized.ong "Normalization"
-[image4]: ./plots/class_grid.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image3]: ./plots/normalized.png "Normalization"
+[image4]: ./plots/class_grid.png "Examples"
+[image5]: ./examples/placeholder.png "Traffic Sign 1"
+[image6]: ./examples/placeholder.png "Traffic Sign 2"
+[image7]: ./examples/placeholder.png "Traffic Sign 3"
+[image8]: ./examples/placeholder.png "Traffic Sign 4"
+[image9]: ./examples/placeholder.png "Traffic Sign 5"
 
 ## Rubric Points
 ## #Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -50,7 +51,7 @@ signs data set:
 #### 2. Include an exploratory visualization of the dataset.
 
 ##### Figure 1.
-German Traffic Sign data, example for each class
+German Traffic Sign data, example for each class.
 
 ![alt text][image4]
 
