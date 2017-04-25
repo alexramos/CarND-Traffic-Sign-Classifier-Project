@@ -25,9 +25,10 @@ The goals / steps of this project are the following:
 [image8]: ./plots/sign4_cropping.png "Traffic Sign 4"
 [image9]: ./plots/sign5_cropping.png "Traffic Sign 5"
 [image10]: ./plots/conv1_feature_map.png "Feature Map"
+[image11]: ./plots/predictions.png "Predictions"
 
 ## Rubric Points
-## #Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
+### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
 
 ---
 ### Writeup / README
@@ -131,7 +132,7 @@ The initial architecture did not perform well with our validation set, with an a
 
 * How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
 
-I started out by increasing the filter depth of the first two convolution layers.  This led to improved performance on both the test and validation set.  I then experimented with adding additional convolution layers and increasing the number of neurons in the fully-connected layers.  Lastly, 
+I started out by increasing the filter depth of the first two convolution layers.  This led to improved performance on both the test and validation set.  I then experimented with adding additional convolution layers and increasing the number of neurons in the fully-connected layers.
 
 * Which parameters were tuned? How were they adjusted and why?
 
@@ -163,7 +164,7 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image5] ![alt text][image6] ![alt text][image7] 
 ![alt text][image8] ![alt text][image9]
 
-The first image might be difficult to classify because ...
+The first image, a 30 km/h sign might be difficult to classify because it is within a larger rectangular shape and it's similar to the 80km/h sign.  The second image, a keep right sign, could prove difficult to classify because it is padded on the left and right sides of the image.  The third image, a circular "No vehicles" sign, is posted above another rectangular sign, which might confuse the classifier.  The fourth image, diamond-shape priority road sign, should be  straightforward to classify.  Lastly, the fifth image, a general caution sign, is similar to the third image, and is also posted above a rectangular sign with wording.
 
 #### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
@@ -171,31 +172,70 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Stop Sign      		| Stop sign   									| 
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Speed limit (30km/h)      		| Speed limit (30km/h)   									| 
+| Keep right     			| Keep right 										|
+| No vehicles					| No vehicles											|
+| Priority road	      		| Priority road					 				|
+| General Caution			| General Caution      							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. This compares favorably to the accuracy on the test set of 95.9%.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
-
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image (Speed limit (30km/h)), the model is very sure that this is a 30 km/h speed limit sign (probability of 1.0). The top five soft max probabilities were:
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| .60         			| Stop sign   									| 
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| 1.0         			| Speed limit (30km/h)   									| 
+| 3e-12     				| Speed limit (20km/h) 										|
+| 1e-12					| Speed limit (50km/h)											|
+| 3e-14	      			| Speed limit (80km/h)					 				|
+| 2e-17				    | End of speed limit (80km/h)      							|
 
+For the second image (Keep right), the model is very sure that this is a Keep right sign (probability of 1.0). The top five soft max probabilities were:
 
-For the second image ... 
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0         			| Keep right   									| 
+| 0.     				| Speed limit (20km/h) 										|
+| 0.					| Speed limit (30km/h)											|
+| 0.	      			| Speed limit (50km/h)					 				|
+| 0.				    | Speed limit (60km/h)      							|
+
+For the third image (No vehicles), the model is very sure that this is a No vehicles sign (probability of 1.0). The top five soft max probabilities were:
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0         			| No vehicles   									| 
+| 2e-13     				| Speed limit (120km/h) 										|
+| 4e-15					| Priority road											|
+| 1e-17	      			| Yield					 				|
+| 4e-19				    | No passing      							|
+
+For the fourth image (Priority road), the model is very sure that this is a Priority road sign (probability of 1.0). The top five soft max probabilities were:
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 1.0         			| Priority road   									| 
+| 3e-24     				| Roundabout mandatory 										|
+| 8e-25					| No vehicles											|
+| 2e-31	      			| Turn right ahead					 				|
+| 1e-31				    | End of no passing by vehicles over 3.5 metric tons      							|
+
+For the fifth image (General caution), the model is very sure that this is a General caution sign (probability of 1.0). The top five soft max probabilities were:
+
+| Probability         	|     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| 0.99999         			| General caution   									| 
+| 3e-7     				| Right-of-way at the next intersection 										|
+| 1e-9					| Pedestrians											|
+| 6e-10	      			| Speed limit (30 km/h)					 				|
+| 1e-10				    | Speed limit (50 km/h)      							|
+
+Below are bar charts visualizing the soft-max probabilities for each of the 5 images tests.
+![alt text][image11]
+
 
 ### (Optional) Visualizing the Neural Network (See Step 4 of the Ipython notebook for more details)
 #### 1. Discuss the visual output of your trained network's feature maps. What characteristics did the neural network use to make classifications?
