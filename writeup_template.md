@@ -122,16 +122,37 @@ My final model results were:
 
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
+
+The first architecture that was tried was the unaltered LeNet approached used for classifying the MNIST data.
+
 * What were some problems with the initial architecture?
+
+The initial architecture did not perform well with our validation set, with an accuracy of 0.89.
+
 * How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
+
+I started out by increasing the filter depth of the first two convolution layers.  This led to improved performance on both the test and validation set.  I then experimented with adding additional convolution layers and increasing the number of neurons in the fully-connected layers.  Lastly, 
+
 * Which parameters were tuned? How were they adjusted and why?
+
+I increased the number of epochs used for training by 100% to 20.  With GPU-based computation, this had a minimal impact on training time while leading to an increased final validation set accuracy.  I also experimented by decreasing the learning rate to decrease training time but this led to poorer performance.
+
 * What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+
+A ConvNet is ideal for classifying images as it mathematically models the hiearchical pattern detection that occurs naturally in our visual cortex.  The architecture used here employs two convolution layers with large filter depths of 48 and 128, respectively.  I also added drop-out after each fully-connected ReLu activation layer.  The reduces overfitting and leads to notable increases in validation set accuracy.
 
 If a well known architecture was chosen:
 * What architecture was chosen?
+
+LeNet architecture was used for this project.
+
 * Why did you believe it would be relevant to the traffic sign application?
+
+I believe LeNet is an appropriate choice of network architecture because it's been shown to perform exceptionally well on image classification of single digit numbers (MNIST dataset).  The German Traffic Sign dataset is more complex than MNIST yet LeNet still performs very well overall.
+
 * How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
  
+The final model's accuracy of 0.999, 0.972, and 0.959 on training, validation, and test sets indicate the model is a bit overfitted to the training set and there is room for improvement.  Nonetheless, the model is performing much better than the initial performance of the unaltered LeNet architecture.
 
 ### Test a Model on New Images
 
