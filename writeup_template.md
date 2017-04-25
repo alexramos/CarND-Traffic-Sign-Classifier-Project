@@ -15,9 +15,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./plots/class_occurence_bar.jpg "Occurence of Classes"
-[image2]: ./plots/grayscaled.jpg "Grayscaling"
-[image3]: ./plots/normalized.jpg "Normalization"
+[image1]: ./plots/class_occurence_bar.png "Occurence of Classes"
+[image2]: ./plots/grayscaled.png "Grayscaling"
+[image3]: ./plots/normalized.ong "Normalization"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
 [image5]: ./examples/placeholder.png "Traffic Sign 2"
 [image6]: ./examples/placeholder.png "Traffic Sign 3"
@@ -47,15 +47,15 @@ signs data set:
 * The shape of a traffic sign image is 32x32x3.
 * The number of unique classes/labels in the data set is 43.
 
-####2. Include an exploratory visualization of the dataset.
+#### 2. Include an exploratory visualization of the dataset.
 
 Here is an exploratory visualization of the data set. It is a grouped bar chart showing the percentage of each class across the three train, validation, and test datasets.  This shows that the distribution of classes are similar across datasets. One notable difference is that the validation set has slightly more representation of labels [0, 6, 15, 19, 20, 21, 22, 30, 33, 34, 36, 40].
 
 ![alt text][image1]
 
-###Design and Test a Model Architecture
+### Design and Test a Model Architecture
 
-####1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
+#### 1. Describe how you preprocessed the image data. What techniques were chosen and why did you choose these techniques? Consider including images showing the output of each preprocessing technique. Pre-processing refers to techniques such as converting to grayscale, normalization, etc. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, and provide example images of the additional data. Then describe the characteristics of the augmented training set like number of images in the set, number of images for each class, etc.)
 
 As a first step, I converted the images to grayscale because to reduce noise in the images and reduce the amount of data used by the network.
 
@@ -69,7 +69,7 @@ Here is an example of a grayscaled traffic sign image before and after normaliza
 
 ![alt text][image3]
 
-####2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
+#### 2. Describe what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
 My final model consisted of the following layers:
 
@@ -94,9 +94,9 @@ My final model consisted of the following layers:
  
 
 
-####3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an ....
+To train the model, I mostly used the LeNet pipline from the previous project, but with some minor modifications.  I used the AdamOptimizer to minimize a loss function with batch size of 128 and learning rate of 0.001.  I trained for 20 epochs and a keep probability of 0.5 for drop-out during training
 
 ####4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
